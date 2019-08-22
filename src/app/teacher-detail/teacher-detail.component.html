@@ -1,28 +1,29 @@
-<form #form="ngForm" autocomplete="off">
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="Id" [value]="service.formData.Id">
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-prepend">
                 <div class="input-group-text bg-white">
-                    <i class="fas fa-user-circle"></i>
+                    <i class="fas fa-user-circle" [class.green-icon]="Name.valid" [class.red-icon]="Name.invalid && Name.touched"></i>
                 </div>
             </div>
-            <input name="Name" #Name="ngModel" [(ngModel)]="service.Name" class="form-control"
-                placeholder="Teacher Name ">
+            <input name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name" class="form-control"
+                placeholder="Teacher Name " required>
         </div>
     </div>
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fas fa-key"></i>
+                <div class="input-group-text bg-white" >
+                    <i class="fas fa-key" [class.green-icon]="HashName.valid" [class.red-icon]="HashName.invalid && HashName.touched"></i>
                 </div>
             </div>
-            <input type="password" name="HashName" #HashName="ngModel" [(ngModel)]="service.HashName" class="form-control"
-                placeholder="Teacher HashName ">
+            <input type="password" name="HashName" #HashName="ngModel" [(ngModel)]="service.formData.HashName" class="form-control"
+                placeholder="Teacher HashName " required>
         </div>
     </div>
     <div class="form-group">
-        <button class="btn btn-success btn-lg btn-block" type="submit">
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid">
         <i class="fas fa-database"></i>    Submit
         </button>
     </div>
