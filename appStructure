@@ -1,0 +1,14 @@
++---● app
+|   +--● teacher-details
+|   |  |--teacher-details.component.ts|.html|.css
+|   |  +--● teacher-detail
+|   |  |  |--teacher-detail.component.ts|.html|.css
+|   |  |
+|   |  +--● teacher-detail-list
+|   |  |  |--teacher-detail-list.component.ts|.html|.css
+|   |  |
+|   |  +--● shared
+|   |     |--teacher-detail.service.ts
+|   |     |--teacher-detail.model.ts
+|   |
+|   |--app.module.ts
