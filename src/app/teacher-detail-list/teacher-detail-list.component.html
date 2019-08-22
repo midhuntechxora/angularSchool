@@ -1,1 +1,6 @@
-<p>teacher-detail-list works!</p>
+<table class="table table-hover">
+    <tr *ngFor="let teacher of service.teachers">
+        <td class="">{{teacher.Name}}</td>
+        <td class="">{{teacher.HashName}}</td>
+    </tr>
+</table>

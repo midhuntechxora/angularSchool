@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TeacherDetailService } from '../shared/teacher-detail.service';
 import { NgForm } from '@angular/forms';
 import { from } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-teacher-detail',
@@ -10,7 +11,8 @@ import { from } from 'rxjs';
 })
 export class TeacherDetailComponent implements OnInit {
 
-  constructor(private service:TeacherDetailService) { }
+  constructor(private service:TeacherDetailService,
+    private toaster:ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -27,7 +29,8 @@ export class TeacherDetailComponent implements OnInit {
   onSubmit(form: NgForm){
     this.service.postTeacherDetail(form.value).subscribe(
       res => {
-        this.resetForm();
+        this.resetForm(form);
+        this.toaster.success('Submitted successfully','Teacher Detail Register');
       },
       err => {
         console.log(err);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TeacherDetailService } from '../shared/teacher-detail.service';
 
 @Component({
   selector: 'app-teacher-detail-list',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherDetailListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:TeacherDetailService) { }
 
   ngOnInit() {
+    this.service.refreshList();
   }
 
 }
